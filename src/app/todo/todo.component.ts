@@ -1,17 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  signal,
-} from '@angular/core';
-import {
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { TodoItemComponent } from './todo-item/todo-item.component';
-import { Todo } from './todo.model';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core'
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms'
+import { TodoItemComponent } from './todo-item/todo-item.component'
+import { Todo } from './todo.model'
 
 @Component({
   selector: 'app-todo',
