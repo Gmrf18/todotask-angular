@@ -6,21 +6,23 @@
           <h1 class="text-center">Todo List</h1>
         </div>
         <div class="card-body">
-          <form (ngSubmit)="addTodo()"  class="input-group mb-3">
+          <div  class="input-group mb-3">
             <input
               type="text"
               class="form-control"
               placeholder="Add a new todo"
               [formControl]="newTodo"
+              (keyup.enter)="addTodo()"
             />
             <button
               class="btn btn-primary"
               type="submit"
+              (click)="addTodo()"
               [disabled]="newTodo.invalid"
             >
               Add
             </button>
-          </form>
+          </div>
           @if (newTodo.invalid && newTodo.touched) {
             <div class="alert alert-danger">You must enter a title with at least 3 characters</div>
           }
