@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="text-center">Todo List</h1>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="addTodo()"  class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Add a new todo"
+              [formControl]="newTodo"
+            />
+            <button
+              class="btn btn-primary"
+              type="submit"
+              [disabled]="newTodo.invalid"
+            >
+              Add
+            </button>
+          </form>
+          @if (newTodo.invalid && newTodo.touched) {
+            <div class="alert alert-danger">You must enter a title with at least 3 characters</div>
+          }
+
+          @for (todo of allTodos(); track todo.id) {
+            <app-todo-item [todo]="todo" (toggle)="toggleTodo($event)" (remove)="removeTodo($event)" />
+          } @empty {
+            <p class="text-center">No todos yet. Add one above!</p>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
